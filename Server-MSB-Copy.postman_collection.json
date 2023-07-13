@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "42417afb-39e3-4d1a-bfb4-a83375aa08b1",
+		"name": "Server MSB Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4349586"
+	},
+	"item": [
+		{
+			"name": "Get Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"\",\r\n    \"pass\": \"\",\r\n    \"time\": {\r\n        \"from\": \"20210920\",\r\n        \"to\": \"20210925\"\r\n    },\r\n    \"accountNo\": \"03412143210\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEV_URL}}/msb/get-transaction",
+					"host": [
+						"{{DEV_URL}}"
+					],
+					"path": [
+						"msb",
+						"get-transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify transfer money",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"{{USER}}\",\r\n    \"pass\": \"{{PASS}}\",\r\n    \"accountNo\": \"03412143210\",\r\n    \"accountNumber\": \"49020201\",\r\n    \"bankId\" : \"970432\",\r\n    \"amount\": \"1000\",\r\n    \"content\": \"Tuan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEV_URL}}/msb/verify-transfer",
+					"host": [
+						"{{DEV_URL}}"
+					],
+					"path": [
+						"msb",
+						"verify-transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm transfer money",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"{{USER}}\",\r\n    \"pass\": \"{{PASS}}\",\r\n    \"id\": \"14c82ac2-1646-4c25-bb1c-7e10ae71ca23\",\r\n    \"authMethod\" : \"ETOKEN\",\r\n    \"otp\": \"200627\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{DEV_URL}}/msb/confirm-transfer",
+					"host": [
+						"{{DEV_URL}}"
+					],
+					"path": [
+						"msb",
+						"confirm-transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Bank Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{DEV_URL}}/msb/get-bank",
+					"host": [
+						"{{DEV_URL}}"
+					],
+					"path": [
+						"msb",
+						"get-bank"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DEV_URL",
+			"value": "https://api-msb.vovanhoangtuan.com"
+		},
+		{
+			"key": "USER",
+			"value": ""
+		},
+		{
+			"key": "PASS",
+			"value": ""
+		}
+	]
+}
